@@ -1,0 +1,382 @@
+/* Reseteo de estilos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+}
+
+/* Header */
+header {
+    width: 100%;
+    height: 150px;
+    background-image: url("assets/fondo.jpeg");
+    background-size: cover;
+    background-position: center 20%;
+    position: relative;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    position: absolute;
+    top: -32px;
+    left: 40px;
+}
+
+.logo img {
+    width: 220px;
+    height: auto;
+}
+
+/* Menú */
+.menu {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 35px;
+    background-color: #6C60F6;
+    z-index: 10;
+}
+
+.menu-container {
+    max-width: 1200px;
+}
+
+.menu ul {
+    list-style: none;
+    text-align: end;
+    font-family: "Open Sans", sans-serif;
+}
+
+.menu li {
+    display: inline-block;
+    margin: 8px;
+    transform: translateX(50px);
+}
+
+.menu a {
+    text-decoration: none;
+    color: white;
+    padding: 5px 10px;
+}
+
+.menu a:hover {
+    color: #007bff;
+}
+.info-section{
+    font-family: "Open Sans", sans-serif;
+    margin-right: 200px;
+    margin-top: 50px;
+    white-space: nowrap;
+}
+.info-title{
+    margin-top: 10px;
+}
+.info-nombre{
+    color: #fff;
+}
+.info-subtitulo{
+    color: white;
+    margin-bottom: 20px;
+}
+.info-text {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #fff;
+    position: relative; /* Necesario para posicionar el punto */
+    padding-left: 20px; /* Espacio para el punto */
+    display: flex; /* Usamos flexbox para alinear verticalmente */
+    align-items: center; /* Alineamos en el centro vertical */
+}
+
+.info-text::before {
+    content: "•";
+    margin-right: 5px; /* Espacio entre el punto y el texto */
+    color: #fff;
+    font-size: 1.5em;
+}
+.contact1img{
+    margin-top: -100px;
+    margin-left: 300px;
+}
+
+/* Estilos para el main-content */
+.main-content {
+    position: relative;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1250px;
+    height: 650px;
+    margin: 50px auto;
+    padding: 0 20px;
+    z-index: 1;
+}
+
+.main-content::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(assets/fondo01.png);
+    background-repeat: no-repeat;
+    background-size: cover; /* Cambiado a cover para que la imagen cubra todo el contenedor */
+    background-position: center;
+    opacity: 0.5;
+    z-index: -1;
+    border-radius: 20px;
+}
+
+/* Sección de Contacto */
+.contact-section-container {
+    max-width: 50%;
+    margin-left: 1px;
+    margin-top: 5px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.contact-section {
+    width:100%;
+    max-width: 400px;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    margin-top: auto;
+    margin-top: 45px;
+}
+
+.titulo-container {
+    display: flex;
+    gap: 5px;
+    font-family: "Open Sans", sans-serif;
+}
+
+.titulo,
+.titulo2 {
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.titulo {
+    color: blue;
+}
+
+.titulo2 {
+    color: black;
+}
+
+.subtitulo-container {
+    display: flex;
+    font-family: "Open Sans", sans-serif;
+    margin-top: 10px;
+}
+
+.subtitulo,
+.subtitulo2 {
+    font-size: 22px;
+}
+
+.subtitulo {
+    color: black;
+}
+
+.subtitulo2 {
+    color: blue;
+    margin-left: 5px;
+}
+
+h3.subtitulo2 a {
+    text-decoration: none;
+    color: blue;
+    transition: transform 0.3s ease;
+    display: inline-block;
+    text-align: center;
+    border-bottom: 1px solid transparent;
+}
+
+h3.subtitulo2 a:hover {
+    text-decoration: underline;
+    text-decoration-color: red;
+    transform: scale(1.1);
+    margin-left: 5px;
+    border-bottom-color: red;
+}
+
+.telefono {
+    text-decoration: none;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+
+h4 {
+    margin-top: 10px;
+    font-family: "Open Sans", sans-serif;
+    font-weight: normal;
+}
+
+.texto-llamada {
+    margin-bottom: 20px;
+}
+
+/* Estilos generales */
+.contact-section form {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Estilos para el teléfono */
+.phone-fields {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.phone-fields select,
+.phone-fields input {
+    flex: 1;
+}
+
+.phone-number {
+    display: flex;
+    align-items: center;
+}
+
+.prefix-phone {
+    margin-right: 10px;
+    font-weight: 500;
+}
+
+.phone-number input[type="text"] {
+    width: 89%;
+}
+
+/* Estilos para la política de privacidad */
+.form-group label input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+.form-group label a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.form-group label a:hover {
+    text-decoration: underline;
+}
+
+/* Estilos para el botón de envío */
+.btn-primary {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(to right, #007bff, #66a3ff);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(to right, #66a3ff, #007bff);
+}
+
+/* Mensajes de error */
+.error-message {
+    color: #ff3333;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+#nombre {
+    margin-top: 5px;
+}
+
+/* Estilos para la info-section */
+.info-section {
+    width: 45%;
+    text-align: left;
+    padding: 20px;
+}
+
+.info-title {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.info-text {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.info-images {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.info-images img {
+    max-width: 48%;
+    height: auto;
+    margin: 0 1%;
+    border-radius: 8px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+/* Estilos para el botón flotante de WhatsApp */
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25d366;
+    color: white;
+    padding: 15px;
+    border-radius: 50%;
+    font-size: 20px;
+    text-decoration: none;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+}
+.whatsapp-float:hover {
+    background-color: #128c7e;
+}

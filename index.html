@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="X-Seg es una empresa líder en seguridad electrónica, ofreciendo soluciones en cámaras de seguridad, alarmas, control de acceso y mucho más.">
+    <meta name="keywords" content="seguridad electrónica, cámaras de seguridad, alarmas, portones automáticos, control de acceso, cercos eléctricos, soluciones integrales">
+    <meta name="author" content="X-Seg Seguridad Electrónica">
+    <title>X-Seg | Seguridad Electrónica</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="servicio.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo"><img src="assets/logo1.png" alt="Logo de X-Seg"></div>
+        </div>
+    </header>
+    <nav class="menu">
+        <div class="menu-container">
+            <ul>
+                <li class="inicio"><a href="#inicio">Inicio</a></li>
+                <li class="servicios"><a href="#servicios">Servicios</a></li>
+                <li class="contacto"><a href="#contacto">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="main-content">
+        <!-- Sección de Contacto -->
+        <section class="contact-section-container">
+            <section class="contact-section">
+                <div class="titulo-container">
+                    <h2 class="titulo"><strong>Cotizá gratis</strong></h2>
+                    <h2 class="titulo2">tu alarma.</h2>
+                </div>
+                <div class="subtitulo-container">
+                    <h3 class="subtitulo">Llamá al</h3>
+                    <h3 class="subtitulo2">
+                        <a href="tel:221321654">
+                            <span class="telefono">221321654</span>
+                        </a>
+                    </h3>
+                </div>
+                <div class="texto-llamada">
+                    <h4>O dejá tus datos, nosotros te llamamos:</h4>
+                </div>
+                <form class="mi-formulario" id="mi-formulario" method="post" action="" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Nombre" required>
+                        <div class="error-message" id="nombre-error" style="display: none;"></div>
+                    </div>
+                    <div class="form-group">
+                        <div class="phone-fields">
+                            <select name="phone_select" class="form-control">
+                                <option value="celular" selected>Celular</option>
+                                <option value="fijo">Fijo</option>
+                            </select>
+                            <input type="text" name="phone_area" placeholder="Código de área" class="form-control">
+                        </div>
+                        <div class="form-row">
+                            <div class="col">
+                                <div class="ps-input form-group input-group has-float-label phone-number">
+                                    <span class="prefix-phone">15 - </span> 
+                                    <input type="text" name="phone_numero" placeholder="Número" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="error-message" id="telefono-error" style="display: none;"></div>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" class="form-control" placeholder="Correo electrónico" required>
+                        <div class="error-message" id="email-error" style="display: none;"></div>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" name="politica-privacidad" required>
+                            Acepto la <a href="/politica-privacidad" style="color: blue;">política de privacidad</a> *
+                        </label>
+                        <div class="error-message" id="politica-error" style="display: none;"></div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </form>
+            </section>
+        </section>
+
+        <!-- Sección de Información -->
+        <aside class="info-section">
+            <p class="info-nombre">X-SEG</p>
+            <h2 class="info-title">Líderes en seguridad electrónica</h2>
+            <h3 class="info-subtitulo">Protegé tu hogar con los mejore profesionales.</h3>
+            <p class="info-text">Presupuestos a tu medida.</p>
+            <p class="info-text">Visitas sin cargo.</p>
+            <p class="info-text">No lo dudes y pedí tu cotización.</p>
+           <img class="contact1img"  src="assets/contact-img.png" alt="contact-img1">
+
+        </aside>
+
+    </section>
+
+    <section class="servicios-section">
+        <h2 class="servicios-title">Nuestros Servicios</h2>
+        <div class="carousel-container">
+            <button class="carousel-button prev">&#9664;</button>
+            <div class="servicios-container">
+                <div class="servicio-card" style="background-image: url('assets/fondo3.jpeg');">
+                    <div class="servicio-image">
+                        <img src="assets/controldeacceso4.png" alt="Control de Acceso">
+                    </div>
+                    <h3 class="servicio-title">Control de Acceso</h3>
+                    <div class="servicio-info">
+                        <p>Identificación de personal
+                        control de horario
+                        restricción de áreas.</p>
+                    </div>
+                </div>
+    
+                <div class="servicio-card" style="background-image: url('assets/fondo3.jpeg');">
+                    <div class="servicio-image">
+                        <img src="assets/camaraSeguridad.png" alt="Soluciones Integrales">
+                    </div>
+                    <h3 class="servicio-title">Soluciones Integrales en redes</h3>
+                    <div class="servicio-info">
+                        <p>armado de proyectos.
+                        provisión.
+                        instalación
+                        mantenimiento.</p>
+                    </div>
+                </div>
+    
+                <div class="servicio-card" style="background-image: url('assets/fondo3.jpeg');">
+                    <div class="servicio-image">
+                        <img src="assets/camarasS.png" alt="Cámaras de Seguridad">
+                    </div>
+                    <h3 class="servicio-title">Cámaras de Seguridad</h3>
+                    <div class="servicio-info">
+                        <p>soluciones analógicas e IP
+                           monitoreo en PC
+                           monitoreo smartphone.</p>
+                    </div>
+                </div>
+    
+                <div class="servicio-card" style="background-image: url('assets/fondo3.jpeg');">
+                    <div class="servicio-image">
+                        <img src="assets/seguridadCamara.png" alt="Seguridad Electrónica">
+                    </div>
+                    <h3 class="servicio-title">Soluciones Integrales en Seguridad Electrónica</h3>
+                    <div class="servicio-info">
+                        <p>Asesoramiento, diseño de proyectos, provisión, instalación, ampliación y mantenimiento.</p>
+                    </div>
+                </div>
+    
+                <div class="servicio-card" style="background-image: url('assets/fondo3.jpeg');">
+                    <div class="servicio-image">
+                        <img src="assets/autoacceso.png" alt="Automatización de Accesos">
+                    </div>
+                    <h3 class="servicio-title">Automatización de Accesos</h3>
+                    <div class="servicio-info">
+                        <p>Automatización de accesos: equipos corredizos, pivotantes, lavandizos, barreras automáticas.</p>
+                    </div>
+                </div>
+                <div class="servicio-card" style="background-image: url('assets/fondo3.jpeg');">
+                    <div class="servicio-image">
+                        <img src="assets/alarma22.png" alt="Alarmas">
+                    </div>
+                    <h3 class="servicio-title">Alarmas</h3>
+                    <div class="servicio-info">
+                        <p>Automatización de accesos: equipos corredizos, pivotantes, lavandizos, barreras automáticas.</p>
+                    </div>
+                </div>
+                <div class="servicio-card" style="background-image: url('assets/fondo3.jpeg');">
+                    <div class="servicio-image">
+                        <img src="assets/portero.png" alt="porteros eléctricos">
+                    </div>
+                    <h3 class="servicio-title">Porteros Eléctricos</h3>
+                    <div class="servicio-info">
+                        <p>Automatización de accesos: equipos corredizos, pivotantes, lavandizos, barreras automáticas.</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-button next">&#9654;</button>
+        </div>
+    </section>
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/tunumerodetelefono" class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>
