@@ -38,3 +38,69 @@ prevButton.addEventListener('click', () => {
 window.addEventListener('load', () => {
     updateCarousel();
 });
+// Inicializa el mapa
+function initMap() {
+    const map = new google.maps.Map(document.getElementById("map"), {
+        center: { lat: -34.60807088045763, lng: -58.37687848476906 },
+        zoom: 15,
+        styles: [
+            {
+                featureType: "all",
+                stylers: [{ saturation: -80 }],
+            },
+            {
+                featureType: "road.arterial",
+                elementType: "geometry",
+                stylers: [{ hue: "#00ffee" }, { saturation: 50 }],
+            },
+            {
+                featureType: "poi.business",
+                elementType: "labels",
+                stylers: [{ visibility: "off" }],
+            },
+        ],
+    });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById('contacto-modal');
+    const contactoLink = document.querySelector('.contacto a');
+    const closeBtn = document.querySelector('.close');
+
+    contactoLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        modal.style.display = 'flex';
+        setTimeout(() => {
+            modal.classList.add('show');
+        }, 10);
+    });
+
+    closeBtn.addEventListener('click', function() {
+        modal.classList.remove('show');
+        setTimeout(() => {
+            modal.style.display = 'none';
+        }, 400);
+    });
+
+    window.addEventListener('click', function(event) {
+        if (event.target == modal) {
+            modal.classList.remove('show');
+            setTimeout(() => {
+                modal.style.display = 'none';
+            }, 400);
+        }
+    });
+
+    const form = document.getElementById('contacto-form');
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const nombre = document.getElementById('nombre').value;
+        const telefono = document.getElementById('telefono').value;
+        const correo = document.getElementById('correo').value;
+        console.log('Formulario enviado:', { nombre, telefono, correo });
+        modal.classList.remove('show');
+        setTimeout(() => {
+            modal.style.display = 'none';
+        }, 400);
+    });
+});
