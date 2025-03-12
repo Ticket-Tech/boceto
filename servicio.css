@@ -7,6 +7,8 @@
     border-radius: 20px;
     position: relative;
     overflow: hidden; /* Oculta el desbordamiento */
+    filter: drop-shadow(0 0 5px rgb(53, 53, 53));
+    border: 1px solid rgb(44, 40, 40);
 }
 
 .servicios-title {
@@ -54,7 +56,7 @@
 }
 
 .servicio-card {
-    width: 290px;
+    width: 288px;
     height: 500px;
     border-radius: 10px;
     background-size: cover;
@@ -67,6 +69,7 @@
     transition: transform 0.3s ease;
     flex-shrink: 0;
     font-family: "Open Sans", sans-serif;
+    
 }
 
 .servicio-card:hover {
@@ -85,12 +88,14 @@
 
 
 .servicio-title {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    font-size: 1.6em;
+    position: relative;
+    top: 30px;
+    font-size: 1.4em;
     font-weight: bold;
     z-index: 10;
+    text-align: center;
+
+  
 }
 
 

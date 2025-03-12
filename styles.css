@@ -76,6 +76,7 @@ header {
     margin-right: 200px;
     margin-top: 50px;
 }
+
 .info-title{
     margin-top: 10px;
 }
@@ -134,9 +135,10 @@ margin-top: -20px;
     background-repeat: no-repeat;
     background-size: cover; /* Cambiado a cover para que la imagen cubra todo el contenedor */
     background-position: center;
-    opacity: 0.5;
+    opacity: 0.3;
     z-index: -1;
     border-radius: 20px;
+    filter: drop-shadow(0 0 10px rgb(243, 244, 245));
 }
 
 /* Sección de Contacto */
@@ -158,6 +160,7 @@ margin-top: -20px;
     text-align: left;
     margin-top: auto;
     margin-top: 45px;
+    border: 2px solid rgba(97, 79, 255, 0.5);
 }
 
 .titulo-container {
