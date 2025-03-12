@@ -82,12 +82,12 @@ header {
     transform: translateX(-50%); /* Centrar el pseudo-elemento */
     width: 0; /* Ancho inicial 0 */
     height: 2px;
-    background-color: #dde74b;
+    background-color: #ffffff;
     transition: width 0.3s ease; /* Transición para el ancho */
 }
 
 .menu a:hover {
-    color: #dde74b;
+    color: #ffffff;
     transform: scale(1.1);
     font-weight: bold;
 }
