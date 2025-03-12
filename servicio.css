@@ -120,3 +120,60 @@
     color:#fff;
     text-align: start;
 }
+
+.quienes-somos-section {
+    background-color: #f7f7f7;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.quienes-somos-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.quienes-somos-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.quienes-somos-section p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.mapa-ubicacion {
+    margin-top: 30px;
+}
+
+.mapa-ubicacion h3 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-social a {
+    color: #fff;
+    font-size: 1.5em;
+    margin: 0 10px;
+}
+
+.footer-social a:hover {
+    color: #ccc;
+}
