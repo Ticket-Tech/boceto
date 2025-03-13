@@ -128,7 +128,7 @@
 
 .quienes-somos-section {
     background-color: #f7f7f7;
-    padding: 50px 20px;
+    padding: 80px 20px;
     text-align: center;
 }
 
@@ -157,6 +157,50 @@
     margin-bottom: 15px;
 }
 
+.quienes-somos-social {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.social-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin: 0 10px;
+    color: white;
+    font-size: 1.2em;
+    text-decoration: none;
+    transition: transform 0.2s ease-in-out;
+}
+
+.social-button:hover {
+    transform: scale(1.1);
+}
+
+.email {
+    background-color: #0078D4; /* Azul de Outlook/Microsoft */
+}
+
+.linkedin {
+    background-color: #0077B5; /* Azul de LinkedIn */
+}
+
+.facebook {
+    background-color: #1877F2; /* Azul de Facebook */
+}
+
+.twitter {
+    background-color: #1DA1F2; /* Azul de Twitter/X */
+}
+
+.instagram {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); /* Gradiente de Instagram */
+}
+
 footer {
     background-color: #333;
     color: #fff;
@@ -173,14 +217,9 @@ footer {
     padding: 0 20px;
 }
 
-.footer-social a {
-    color: #fff;
-    font-size: 1.5em;
-    margin: 0 10px;
-}
-
-.footer-social a:hover {
-    color: #ccc;
+.footer-info p{
+    text-align: center;
+    margin-left: 450px;
 }
 .quienes-somos-section{
     font-family:"Open Sans", sans-serif ;

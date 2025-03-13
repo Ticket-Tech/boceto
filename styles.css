@@ -129,8 +129,9 @@ header {
     font-size: 1.5em;
 }
 .contact1img{
-transform: translateX(170px);
-margin-top: -20px;
+
+margin-top: 150px;
+transform: rotate(-33deg) translateX(350px);
 }
 
 /* Estilos para el main-content */
@@ -182,8 +183,7 @@ margin-top: -20px;
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     text-align: left;
-    margin-top: auto;
-    margin-top: 45px;
+    margin-top: 41px;
     border: 2px solid rgba(97, 79, 255, 0.5);
 }
 
