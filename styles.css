@@ -390,20 +390,25 @@ h4 {
     border-radius: 8px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
-/* Estilos para el botón flotante de WhatsApp */
 .whatsapp-float {
     position: fixed;
     bottom: 20px;
     right: 20px;
     background-color: #25d366;
     color: white;
-    padding: 15px;
-    border-radius: 50%;
-    font-size: 20px;
+    width: 62px; /* Aumenta el ancho del botón */
+    height: 62px; /* Aumenta el alto del botón */
+    padding: 1px; /* Aumenta el padding para dar más espacio al icono */
+    border-radius: 52%;
+    font-size: 50px; /* Aumenta el tamaño del icono */
     text-decoration: none;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
     z-index: 1000;
+    display: flex; /* Centra el icono */
+    justify-content: center;
+    align-items: center;
 }
+
 .whatsapp-float:hover {
     background-color: #128c7e;
 }
