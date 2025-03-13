@@ -393,11 +393,11 @@ h4 {
 .whatsapp-float {
     position: fixed;
     bottom: 20px;
-    right: 20px;
+    right: 40px;
     background-color: #25d366;
     color: white;
-    width: 62px; /* Aumenta el ancho del botón */
-    height: 62px; /* Aumenta el alto del botón */
+    width: 50px; /* Aumenta el ancho del botón */
+    height: 50px; /* Aumenta el alto del botón */
     padding: 1px; /* Aumenta el padding para dar más espacio al icono */
     border-radius: 52%;
     font-size: 50px; /* Aumenta el tamaño del icono */
@@ -411,4 +411,16 @@ h4 {
 
 .whatsapp-float:hover {
     background-color: #128c7e;
+}
+
+.fab.fa-whatsapp {
+
+    font-size: 1.2em; /* Aumenta el tamaño del icono */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Agrega una sombra */
+    transform: rotate(15deg); /* Rota el icono */
+    transition: transform 0.3s ease;
+}
+
+.fab.fa-whatsapp:hover {
+    transform: scale(1.1);
 }
