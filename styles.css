@@ -130,8 +130,9 @@ header {
 }
 .contact1img{
 
-margin-top: 150px;
-transform: rotate(-33deg) translateX(350px);
+margin-top: 5px;
+transform: translateX(170px);
+width: 55%;
 }
 
 /* Estilos para el main-content */
@@ -196,7 +197,7 @@ transform: rotate(-33deg) translateX(350px);
 .titulo,
 .titulo2 {
     font-weight: bold;
-    font-size: 30px;
+    font-size: 27px;
 }
 
 .titulo {
@@ -215,7 +216,7 @@ transform: rotate(-33deg) translateX(350px);
 
 .subtitulo,
 .subtitulo2 {
-    font-size: 22px;
+    font-size: 20px;
 }
 
 .subtitulo {

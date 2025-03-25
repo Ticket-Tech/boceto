@@ -77,7 +77,7 @@
 }
 
 .servicio-image img {
-    max-width: 100%;
+    max-width: 95%;
     max-height: 100%;
     object-fit: cover;
     position: absolute;
@@ -115,8 +115,14 @@
     transition: opacity 0.3s ease;
     font-family: "Open Sans", sans-serif;
 }
-
-.servicio-card:hover .servicio-info {
+.servicio-soluciones .servicio-info {
+    margin-top: 50px; /* Ajusta este valor según necesites */
+}
+.servicio-soluciones .servicio-image img{
+    margin-bottom: 50px;
+    margin-left: 40px;
+}
+.servicio-card:hover .servicio-info{
     opacity: 1;
 }
 
@@ -124,6 +130,12 @@
     font-size: 1em;
     color:#fff;
     text-align: start;
+}
+.servicio-totem .servicio-image img {
+    width: 150px; /* Ajusta el ancho según lo necesites */
+    height: auto;
+    margin-left: 60px;
+    margin-bottom: 20px;
 }
 
 .quienes-somos-section {
@@ -219,10 +231,13 @@ footer {
 
 .footer-info p{
     text-align: center;
-    margin-left: 450px;
 }
 .quienes-somos-section{
     font-family:"Open Sans", sans-serif ;
+}
+
+.quienes-somos-container p{
+    font-size: 25px;
 }
 
 /* Estilos del modal compacto e interactivo */
