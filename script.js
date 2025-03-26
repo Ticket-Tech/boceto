@@ -1,67 +1,130 @@
 const carouselContainer = document.querySelector('.carousel-container');
 const serviciosContainer = document.querySelector('.servicios-container');
-const prevButton = document.querySelector('.carousel-button.prev');
-const nextButton = document.querySelector('.carousel-button.next');
 const servicioCards = Array.from(serviciosContainer.children);
-const servicioCardWidth = 420; // Ancho de cada tarjeta (400px + 20px de gap)
-let currentPosition = 0;
-const visibleCards = 5; // Número de tarjetas visibles
-const totalCards = servicioCards.length;
+const servicioCardWidth = 308; // Ancho de cada tarjeta
+let currentPosition = 1; // Posición actual
+const totalCards = servicioCards.length; // Total de tarjetas
+let autoScrollInterval;
+let isPaused = false; // Para pausar el desplazamiento automático
+let isDragging = false; // Para saber si se está arrastrando
+let startX = 0; // Posición inicial del mouse
+let scrollLeft = 0; // Posición de desplazamiento inicial
 
 function updateCarousel() {
     serviciosContainer.style.transform = `translateX(-${currentPosition * servicioCardWidth}px)`;
 }
 
+function startAutoScroll() {
+    autoScrollInterval = setInterval(() => {
+        if (!isPaused && !isDragging) {
+            currentPosition++;
+            if (currentPosition > totalCards - 1) {
+                currentPosition = 2; // Reinicia la posición
+                serviciosContainer.style.transition = 'none'; // Sin transición
+                updateCarousel();
+                setTimeout(() => {
+                    serviciosContainer.style.transition = 'transform 0.5s ease-in-out'; // Vuelve a habilitar la transición
+                }, 10);
+            } else {
+                updateCarousel();
+            }
+        }
+    }, 3000);
+}
+
+function stopAutoScroll() {
+    clearInterval(autoScrollInterval);
+}
+
+window.addEventListener('load', () => {
+    const firstCardClone = servicioCards[0].cloneNode(true);
+    const secondCardClone = servicioCards[1].cloneNode(true);
+    const lastCardClone = servicioCards[totalCards - 1].cloneNode(true);
+
+    serviciosContainer.appendChild(firstCardClone);
+    serviciosContainer.appendChild(secondCardClone);
+    serviciosContainer.insertBefore(lastCardClone, serviciosContainer.firstChild);
+
+    servicioCards.unshift(lastCardClone);
+    servicioCards.push(firstCardClone, secondCardClone);
+
+    currentPosition = 1; // Posición inicial
+    updateCarousel();
+    startAutoScroll(); // Inicia el desplazamiento automático
+});
+
+// Eventos para pausar el desplazamiento automático al pasar el mouse
+serviciosContainer.addEventListener('mouseenter', () => {
+    isPaused = true;
+});
+
+serviciosContainer.addEventListener('mouseleave', () => {
+    isPaused = false;
+});
+
+// Eventos para el desplazamiento manual
+serviciosContainer.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    startX = e.pageX - serviciosContainer.offsetLeft;
+    scrollLeft = serviciosContainer.scrollLeft;
+    stopAutoScroll(); // Detiene el desplazamiento automático
+});
+
+serviciosContainer.addEventListener('mouseleave', () => {
+    if (isDragging) {
+        isDragging = false;
+        startAutoScroll(); // Reinicia el desplazamiento automático
+    }
+});
+
+serviciosContainer.addEventListener('mouseup', () => {
+    isDragging = false;
+    startAutoScroll(); // Reinicia el desplazamiento automático
+});
+
+serviciosContainer.addEventListener('mousemove', (e) => {
+    if (isDragging) {
+        const x = e.pageX - serviciosContainer.offsetLeft;
+        const walk = (x - startX) * 2; // Multiplicador para ajustar la velocidad
+        serviciosContainer.scrollLeft = scrollLeft - walk; // Desplaza el contenedor
+    }
+});
+
+// Botones de desplazamiento manual
+const nextButton = document.querySelector('.carousel-button.next');
+const prevButton = document.querySelector('.carousel-button.prev');
+
 nextButton.addEventListener('click', () => {
     currentPosition++;
-    if (currentPosition > totalCards - visibleCards) {
-        // Mover la primera tarjeta al final
-        serviciosContainer.appendChild(servicioCards[0]);
-        servicioCards.push(servicioCards.shift()); // Actualizar el array de tarjetas
-        currentPosition--; // Ajustar la posición
+    if (currentPosition > totalCards - 1) {
+        currentPosition = 2; // Reinicia la posición
+        serviciosContainer.style.transition = 'none'; // Sin transición
+        updateCarousel();
+        setTimeout(() => {
+            serviciosContainer.style.transition = 'transform 0.5s ease-in-out'; // Vuelve a habilitar la transición
+        }, 10);
+    } else {
+        updateCarousel();
     }
-    updateCarousel();
+    stopAutoScroll(); // Detiene el desplazamiento automático
 });
 
 prevButton.addEventListener('click', () => {
     currentPosition--;
-    if (currentPosition < 0) {
-        // Mover la última tarjeta al inicio
-        serviciosContainer.insertBefore(servicioCards[totalCards - 1], serviciosContainer.firstChild);
-        servicioCards.unshift(servicioCards.pop()); // Actualizar el array de tarjetas
-        currentPosition++; // Ajustar la posición
+    if (currentPosition < 1) {
+        currentPosition = totalCards - 2; // Va al último elemento
+        serviciosContainer.style.transition = 'none'; // Sin transición
+        updateCarousel();
+        setTimeout(() => {
+            serviciosContainer.style.transition = 'transform 0.5s ease-in-out'; // Vuelve a habilitar la transición
+        }, 10);
+    } else {
+        updateCarousel();
     }
-    updateCarousel();
+    stopAutoScroll(); // Detiene el desplazamiento automático
 });
 
-// Asegura que la última tarjeta se vea completa al cargar la página
-window.addEventListener('load', () => {
-    updateCarousel();
-});
-// Inicializa el mapa
-function initMap() {
-    const map = new google.maps.Map(document.getElementById("map"), {
-        center: { lat: -34.60807088045763, lng: -58.37687848476906 },
-        zoom: 15,
-        styles: [
-            {
-                featureType: "all",
-                stylers: [{ saturation: -80 }],
-            },
-            {
-                featureType: "road.arterial",
-                elementType: "geometry",
-                stylers: [{ hue: "#00ffee" }, { saturation: 50 }],
-            },
-            {
-                featureType: "poi.business",
-                elementType: "labels",
-                stylers: [{ visibility: "off" }],
-            },
-        ],
-    });
-}
-
+// Código para el modal de contacto
 document.addEventListener('DOMContentLoaded', function() {
     const modal = document.getElementById('contacto-modal');
     const contactoLink = document.querySelector('.contacto a');
