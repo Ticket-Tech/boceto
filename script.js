@@ -9,6 +9,7 @@ let isPaused = false; // Para pausar el desplazamiento automático
 let isDragging = false; // Para saber si se está arrastrando
 let startX = 0; // Posición inicial del mouse
 let scrollLeft = 0; // Posición de desplazamiento inicial
+let autoScrollTimeout; // Temporizador para reiniciar el desplazamiento automático
 
 function updateCarousel() {
     serviciosContainer.style.transform = `translateX(-${currentPosition * servicioCardWidth}px)`;
@@ -34,6 +35,14 @@ function startAutoScroll() {
 
 function stopAutoScroll() {
     clearInterval(autoScrollInterval);
+    clearTimeout(autoScrollTimeout); // Limpiar el temporizador si existe
+}
+
+function resetAutoScroll() {
+    stopAutoScroll(); // Detener el desplazamiento automático
+    autoScrollTimeout = setTimeout(() => {
+        startAutoScroll(); // Reiniciar el desplazamiento automático después de 3 segundos
+    }, 3000);
 }
 
 window.addEventListener('load', () => {
@@ -73,13 +82,13 @@ serviciosContainer.addEventListener('mousedown', (e) => {
 serviciosContainer.addEventListener('mouseleave', () => {
     if (isDragging) {
         isDragging = false;
-        startAutoScroll(); // Reinicia el desplazamiento automático
+        resetAutoScroll(); // Reinicia el desplazamiento automático
     }
 });
 
 serviciosContainer.addEventListener('mouseup', () => {
     isDragging = false;
-    startAutoScroll(); // Reinicia el desplazamiento automático
+    resetAutoScroll(); // Reinicia el desplazamiento automático
 });
 
 serviciosContainer.addEventListener('mousemove', (e) => {
@@ -106,7 +115,7 @@ nextButton.addEventListener('click', () => {
     } else {
         updateCarousel();
     }
-    stopAutoScroll(); // Detiene el desplazamiento automático
+    resetAutoScroll(); // Reinicia el temporizador para el desplazamiento automático
 });
 
 prevButton.addEventListener('click', () => {
@@ -121,7 +130,7 @@ prevButton.addEventListener('click', () => {
     } else {
         updateCarousel();
     }
-    stopAutoScroll(); // Detiene el desplazamiento automático
+    resetAutoScroll(); // Reinicia el temporizador para el desplazamiento automático
 });
 
 // Código para el modal de contacto
