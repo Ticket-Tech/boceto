@@ -13,6 +13,7 @@ let isDragging = false;
 let startX = 0;
 let scrollLeft = 0;
 let autoScrollTimeout;
+let isUserInteracting = false; // Nueva bandera
 
 const servicioCardWidthTablet = 300;
 const servicioCardMarginTablet = 10;
@@ -29,7 +30,7 @@ function updateCarousel() {
 
 function startAutoScroll() {
     autoScrollInterval = setInterval(() => {
-        if (!isPaused && !isDragging) {
+        if (!isPaused && !isDragging && !isUserInteracting) { // Comprobar si el usuario está interactuando
             currentPosition++;
             if (currentPosition >= totalCards) {
                 currentPosition = 0;
@@ -129,6 +130,7 @@ serviciosContainer.addEventListener('touchstart', (e) => {
     startX = e.touches[0].pageX - serviciosContainer.offsetLeft;
     scrollLeft = serviciosContainer.scrollLeft;
     stopAutoScroll();
+    isUserInteracting = true; // El usuario está interactuando
 });
 
 serviciosContainer.addEventListener('touchmove', (e) => {
@@ -149,6 +151,7 @@ serviciosContainer.addEventListener('touchend', () => {
         }
         updateCarousel();
         setTimeout(resetAutoScroll, 2000);
+        isUserInteracting = false; // El usuario ha terminado de interactuar
     }
 });
 
@@ -182,6 +185,8 @@ serviciosContainer.addEventListener('mousemove', (e) => {
         serviciosContainer.scrollLeft = scrollLeft - walk;
     }
 });
+
+// ... (resto de tu código JavaScript para modales) ...
 document.addEventListener('DOMContentLoaded', function() {
     // Modal de contacto
     const contactoModal = document.getElementById('contacto-modal');
