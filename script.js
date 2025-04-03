@@ -4,7 +4,7 @@ const servicioCards = Array.from(serviciosContainer.children);
 const prevButton = document.querySelector('.carousel-button.prev');
 const nextButton = document.querySelector('.carousel-button.next');
 let servicioCardWidth = 0;
-let servicioCardMargin = 0; // Nueva variable para el margen
+let servicioCardMargin = 0;
 let currentPosition = 0;
 const totalCards = servicioCards.length;
 let autoScrollInterval;
@@ -14,18 +14,15 @@ let startX = 0;
 let scrollLeft = 0;
 let autoScrollTimeout;
 
-const servicioCardWidthTablet = 300; // Ancho fijo para tablets
-const servicioCardMarginTablet = 10; // Margen fijo para tablets
+const servicioCardWidthTablet = 300;
+const servicioCardMarginTablet = 10;
 
 function updateCarousel() {
     if (window.innerWidth <= 767) {
-        // Para celulares, usar scrollLeft con precisión
-        serviciosContainer.scrollLeft = currentPosition * serviciosContainer.offsetWidth;
+        serviciosContainer.scrollLeft = currentPosition * servicioCardWidth;
     } else if (window.innerWidth >= 768 && window.innerWidth <= 1023) {
-        // Para tablets, usar scrollLeft con valores fijos
         serviciosContainer.scrollLeft = currentPosition * (servicioCardWidth + servicioCardMargin);
     } else {
-        // Para escritorio, usar translateX (código original)
         serviciosContainer.style.transform = `translateX(-${currentPosition * servicioCardWidth}px)`;
     }
 }
@@ -62,17 +59,14 @@ function resetAutoScroll() {
 
 function calculateCardWidth() {
     if (window.innerWidth <= 767) {
-        // Para celulares, calcular el ancho de la tarjeta dinámicamente
         servicioCardWidth = serviciosContainer.offsetWidth;
-        servicioCardMargin = 0; // Sin margen horizontal
+        servicioCardMargin = 0;
     } else if (window.innerWidth >= 768 && window.innerWidth <= 1023) {
-        // Para tablets, usar valores fijos
-        servicioCardWidth = servicioCardWidthTablet;
-        servicioCardMargin = servicioCardMarginTablet;
+        servicioCardWidth = 300;
+        servicioCardMargin = 10;
     } else {
-        // Para escritorio, usar el ancho fijo
         servicioCardWidth = 308;
-        servicioCardMargin = 20; // Ajusta este valor según tus márgenes en CSS
+        servicioCardMargin = 20;
     }
 }
 
@@ -80,7 +74,6 @@ window.addEventListener('load', () => {
     calculateCardWidth();
     updateCarousel();
     if (window.innerWidth >= 768) {
-        // Clonar tarjetas para efecto infinito en tablets y escritorio (sin cambios)
         const firstCardClone = servicioCards[0].cloneNode(true);
         const secondCardClone = servicioCards[1].cloneNode(true);
         const lastCardClone = servicioCards[totalCards - 1].cloneNode(true);
@@ -96,7 +89,7 @@ window.addEventListener('load', () => {
         updateCarousel();
         startAutoScroll();
     } else {
-        startAutoScroll(); // Iniciar scroll automático en celulares
+        startAutoScroll();
     }
 });
 
@@ -113,7 +106,6 @@ serviciosContainer.addEventListener('mouseleave', () => {
     isPaused = false;
 });
 
-// Eventos de clic para los botones (sin cambios)
 if (prevButton && nextButton) {
     prevButton.addEventListener('click', () => {
         currentPosition--;
@@ -132,18 +124,15 @@ if (prevButton && nextButton) {
     });
 }
 
-// Eventos táctiles (ajustados para celulares)
 serviciosContainer.addEventListener('touchstart', (e) => {
-    if (window.innerWidth <= 767) {
-        isDragging = true;
-        startX = e.touches[0].pageX - serviciosContainer.offsetLeft;
-        scrollLeft = serviciosContainer.scrollLeft;
-        stopAutoScroll();
-    }
+    isDragging = true;
+    startX = e.touches[0].pageX - serviciosContainer.offsetLeft;
+    scrollLeft = serviciosContainer.scrollLeft;
+    stopAutoScroll();
 });
 
 serviciosContainer.addEventListener('touchmove', (e) => {
-    if (isDragging && window.innerWidth <= 767) {
+    if (isDragging) {
         const x = e.touches[0].pageX - serviciosContainer.offsetLeft;
         const walk = (x - startX) * 3;
         serviciosContainer.scrollLeft = scrollLeft - walk;
@@ -151,24 +140,18 @@ serviciosContainer.addEventListener('touchmove', (e) => {
 });
 
 serviciosContainer.addEventListener('touchend', () => {
-    if (window.innerWidth <= 767) {
+    if (isDragging) {
         isDragging = false;
-        currentPosition = Math.round(serviciosContainer.scrollLeft / serviciosContainer.offsetWidth);
+        if (window.innerWidth <= 767) {
+            currentPosition = Math.round(serviciosContainer.scrollLeft / servicioCardWidth);
+        } else if (window.innerWidth >= 768 && window.innerWidth <= 1023) {
+            currentPosition = Math.round(serviciosContainer.scrollLeft / (servicioCardWidth + servicioCardMargin));
+        }
         updateCarousel();
-        resetAutoScroll();
-    } else if (window.innerWidth >= 768 && window.innerWidth <= 1023) {
-        // Para tablets, usar valores fijos
-        isDragging = false;
-        currentPosition = Math.round(serviciosContainer.scrollLeft / (servicioCardWidth + servicioCardMargin));
-        updateCarousel();
-        resetAutoScroll();
-    } else {
-        isDragging = false;
-        resetAutoScroll();
+        setTimeout(resetAutoScroll, 2000);
     }
 });
 
-// Eventos de ratón (sin cambios)
 serviciosContainer.addEventListener('mousedown', (e) => {
     if (window.innerWidth >= 768) {
         isDragging = true;
@@ -200,7 +183,6 @@ serviciosContainer.addEventListener('mousemove', (e) => {
     }
 });
 
-// Modal de contacto (sin cambios)
 document.addEventListener('DOMContentLoaded', function() {
     const modal = document.getElementById('contacto-modal');
     const contactoLink = document.querySelector('.contacto a');
@@ -230,14 +212,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    const form = document.getElementById('mi-formulario'); // o 'contacto-form'
+    const form = document.getElementById('mi-formulario');
 
     form.addEventListener('submit', (e) => {
         e.preventDefault();
 
         const nombre = encodeURIComponent(document.getElementById('nombre').value);
         const telefono = encodeURIComponent(document.getElementById('telefono').value);
-        const correo = encodeURIComponent(document.getElementById('email').value); // o 'correo'
+        const correo = encodeURIComponent(document.getElementById('email').value);
 
         const body = `Nombre: ${nombre}\nTeléfono: ${telefono}\nCorreo: ${correo}`;
 
