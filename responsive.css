@@ -111,7 +111,8 @@
     }
 
     .servicio-card {
-        width: 350px;
+        width: 90vw;
+        max-width: 100%;
         margin: 0 10px 0 10px;
         flex-shrink: 0;
     }
