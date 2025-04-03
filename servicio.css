@@ -205,8 +205,8 @@
     background-color: #1877F2; /* Azul de Facebook */
 }
 
-.twitter {
-    background-color: #1DA1F2; /* Azul de Twitter/X */
+.x-social {
+    background-color: #000; /* Color de X */
 }
 
 .instagram {
@@ -239,9 +239,9 @@ footer {
 .quienes-somos-container p{
     font-size: 25px;
 }
+/* Estilos del modal de contacto adaptados */
 
-/* Estilos del modal compacto e interactivo */
-.modal {
+.contacto-modal {
     display: none;
     position: fixed;
     z-index: 1000;
@@ -253,10 +253,10 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    pointer-events: none
+    pointer-events: none;
 }
 
-.modal-content {
+.contacto-modal-content {
     background-color: #fff;
     padding: 30px;
     border-radius: 15px;
@@ -264,29 +264,30 @@ footer {
     width: 90%;
     max-width: 400px;
     position: relative;
-    transform: translateY(-50px);
+    transform: translateY(-500px); /* Ajustado para la animación */
     opacity: 0;
     transition: transform 0.4s ease-out, opacity 0.4s ease-out;
 }
-.modal.show {
-    backdrop-filter: blur(5px); /* Aplicar el desenfoque solo cuando el modal está visible */
+
+.contacto-modal.show {
+    backdrop-filter: blur(5px);
     background-color: rgba(0, 0, 0, 0.6);
     pointer-events: auto;
 }
 
-.modal.show .modal-content {
+.contacto-modal.show .contacto-modal-content {
     transform: translateY(0);
     opacity: 1;
 }
 
-.modal-content h2 {
+.contacto-modal-content h2 {
     text-align: center;
     margin-bottom: 25px;
     color: #333;
     font-size: 1.8em;
 }
 
-.close {
+.contacto-close {
     position: absolute;
     top: 10px;
     right: 15px;
@@ -299,17 +300,17 @@ footer {
     transition: color 0.3s;
 }
 
-.close:hover,
-.close:focus {
+.contacto-close:hover,
+.contacto-close:focus {
     color: #333;
 }
 
-#contacto-form {
+#mi-formulario {
     display: grid;
     grid-gap: 15px;
 }
 
-#contacto-form input {
+#mi-formulario input {
     padding: 12px;
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -317,13 +318,13 @@ footer {
     transition: border-color 0.3s, box-shadow 0.3s;
 }
 
-#contacto-form input:focus {
+#mi-formulario input:focus {
     border-color: #6C60F6;
     outline: none;
     box-shadow: 0 0 8px rgba(108, 96, 246, 0.4);
 }
 
-#contacto-form button {
+#mi-formulario button {
     background-color: #6C60F6;
     color: white;
     padding: 14px 20px;
@@ -334,11 +335,117 @@ footer {
     transition: background-color 0.3s, transform 0.2s;
 }
 
-#contacto-form button:hover {
+#mi-formulario button:hover {
     background-color: #5a4ece;
     transform: translateY(-2px);
 }
 
-#contacto-form button:active {
+#mi-formulario button:active {
     transform: translateY(1px);
+}
+
+
+.politica-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+}
+
+.politica-modal-content {
+    background-color: #fff;
+    padding: 20px; /* Reducido el padding para un estilo más suave */
+    border-radius: 10px; /* Redondeo de bordes más suave */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Sombra más sutil */
+    width: 90%;
+    max-width: 500px; /* Ancho máximo reducido para dispositivos */
+    max-height: 80%; /* Altura máxima del contenido */
+    overflow-y: auto; /* Agregado scroll vertical */
+    position: relative;
+    transform: translateY(-500px);
+    opacity: 0;
+    transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+}
+
+.politica-modal.show {
+    backdrop-filter: blur(5px);
+    background-color: rgba(0, 0, 0, 0.6);
+    pointer-events: auto;
+}
+
+.politica-modal.show .politica-modal-content {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.politica-modal-content h2 {
+    font-size: 1.5em; /* Tamaño de fuente reducido */
+    margin-bottom: 15px;
+    text-align: center;
+    color: #333;
+}
+
+.politica-modal-content p,
+.politica-modal-content li {
+    font-size: 0.9em; /* Tamaño de fuente reducido */
+    line-height: 1.5;
+    margin-bottom: 15px;
+    color: #555; /* Color de texto más suave */
+}
+
+.politica-modal-content label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 0.9em; /* Tamaño de fuente reducido */
+}
+
+politica-modal-content label input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+#aceptar-btn {
+    background-color: #6C60F6;
+    color: white;
+    padding: 8px 16px; /* Padding reducido */
+    border: none;
+    border-radius: 6px; /* Redondeo de bordes más suave */
+    cursor: pointer;
+    font-size: 0.9em; /* Tamaño de fuente reducido */
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#aceptar-btn:hover {
+    background-color: #5a4ece;
+    transform: translateY(-2px);
+}
+
+#aceptar-btn:active {
+    transform: translateY(1px);
+}
+
+.politica-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px; /* Tamaño de fuente reducido */
+    font-weight: bold;
+    color: #aaa;
+    cursor: pointer;
+    background: none;
+    border: none;
+    transition: color 0.3s;
+}
+
+.politica-close:hover,
+.politica-close:focus {
+    color: #333;
 }

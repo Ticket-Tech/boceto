@@ -182,32 +182,32 @@ serviciosContainer.addEventListener('mousemove', (e) => {
         serviciosContainer.scrollLeft = scrollLeft - walk;
     }
 });
-
 document.addEventListener('DOMContentLoaded', function() {
-    const modal = document.getElementById('contacto-modal');
+    // Modal de contacto
+    const contactoModal = document.getElementById('contacto-modal');
     const contactoLink = document.querySelector('.contacto a');
-    const closeBtn = document.querySelector('.close');
+    const contactoCloseBtn = document.querySelector('.contacto-close');
 
     contactoLink.addEventListener('click', function(e) {
         e.preventDefault();
-        modal.style.display = 'flex';
+        contactoModal.style.display = 'flex';
         setTimeout(() => {
-            modal.classList.add('show');
+            contactoModal.classList.add('show');
         }, 10);
     });
 
-    closeBtn.addEventListener('click', function() {
-        modal.classList.remove('show');
+    contactoCloseBtn.addEventListener('click', function() {
+        contactoModal.classList.remove('show');
         setTimeout(() => {
-            modal.style.display = 'none';
+            contactoModal.style.display = 'none';
         }, 400);
     });
 
     window.addEventListener('click', function(event) {
-        if (event.target == modal) {
-            modal.classList.remove('show');
+        if (event.target == contactoModal) {
+            contactoModal.classList.remove('show');
             setTimeout(() => {
-                modal.style.display = 'none';
+                contactoModal.style.display = 'none';
             }, 400);
         }
     });
@@ -217,12 +217,51 @@ document.addEventListener('DOMContentLoaded', function() {
     form.addEventListener('submit', (e) => {
         e.preventDefault();
 
-        const nombre = encodeURIComponent(document.getElementById('nombre').value);
-        const telefono = encodeURIComponent(document.getElementById('telefono').value);
-        const correo = encodeURIComponent(document.getElementById('email').value);
+        const nombre = encodeURIComponent(document.getElementById('nombre-contacto').value);
+        const telefono = encodeURIComponent(document.getElementById('telefono-contacto').value);
+        const correo = encodeURIComponent(document.getElementById('correo-contacto').value);
 
         const body = `Nombre: ${nombre}\nTeléfono: ${telefono}\nCorreo: ${correo}`;
 
         window.location.href = `mailto:consultas@x-seg.com.ar?subject=Formulario de contacto&body=${body}`;
+    });
+
+    // Modal de política de privacidad (modificado)
+    const politicaModal = document.getElementById('politica-modal');
+    const politicaCloseBtn = document.querySelector('.politica-close');
+    const aceptarBtn = document.getElementById('aceptar-btn');
+    const aceptarCheckbox = document.getElementById('aceptar-politica');
+    const abrirPoliticaModal = document.getElementById('abrir-politica-modal');
+
+    abrirPoliticaModal.addEventListener('click', function(e) {
+        e.preventDefault();
+        politicaModal.style.display = 'flex';
+        setTimeout(() => {
+            politicaModal.classList.add('show');
+        }, 10);
+    });
+
+    politicaCloseBtn.addEventListener('click', function() {
+        politicaModal.classList.remove('show');
+        setTimeout(() => {
+            politicaModal.style.display = 'none';
+        }, 400);
+    });
+
+    window.addEventListener('click', function(event) {
+        if (event.target == politicaModal) {
+            politicaModal.classList.remove('show');
+            setTimeout(() => {
+                politicaModal.style.display = 'none';
+            }, 400);
+        }
+    });
+
+    aceptarBtn.addEventListener('click', function() {
+        if (aceptarCheckbox.checked) {
+            politicaModal.style.display = 'none';
+        } else {
+            alert('Debes aceptar la política de privacidad para continuar.');
+        }
     });
 });

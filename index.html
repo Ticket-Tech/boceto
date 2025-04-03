@@ -80,7 +80,7 @@
                     <div class="form-group">
                         <label>
                             <input type="checkbox" name="politica-privacidad" required>
-                            Acepto la <a href="/politica-privacidad" style="color: blue;">política de privacidad</a> *
+                            Acepto la <a href="#" id="abrir-politica-modal" style="color: blue;">política de privacidad</a> *
                         </label>
                         <div class="error-message" id="politica-error" style="display: none;"></div>
                     </div>
@@ -241,7 +241,7 @@
                     <a href="mailto:consultas@x-seg.com.ar" class="social-button email"><i class="fas fa-envelope"></i></a>
                     <a href="https://www.linkedin.com/in/x-seg-seguridad-electronica-a5829a114/" target="_blank" class="social-button linkedin"><i class="fab fa-linkedin-in"></i></a>
                     <a href="https://www.facebook.com/xsegba" target="_blank" class="social-button facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://twitter.com/@xsegba" target="_blank" class="social-button twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://twitter.com/@xsegba" target="_blank" class="social-button x-social"><i class="fa-solid fa-x"></i></a>
                     <a href="https://www.instagram.com/xseguridad" target="_blank" class="social-button instagram"><i class="fab fa-instagram"></i></a>
                 </div>
         </div>
@@ -260,16 +260,118 @@
 
     <script src="script.js"></script>
 
-    <div id="contacto-modal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
+    <div id="contacto-modal" class="modal contacto-modal">
+        <div class="modal-content contacto-modal-content">
+            <span class="close contacto-close">&times;</span>
             <h2>¡Contáctanos!</h2>
-            <form id="contacto-form">
-                <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
-                <input type="tel" id="telefono" name="telefono" placeholder="Tu teléfono" required>
-                <input type="email" id="correo" name="correo" placeholder="Tu correo" required>
+            <form id="mi-formulario">
+                <input type="text" id="nombre-contacto" name="nombre" placeholder="Tu nombre" required>
+                <input type="tel" id="telefono-contacto" name="telefono" placeholder="Tu teléfono" required>
+                <input type="email" id="correo-contacto" name="correo" placeholder="Tu correo" required>
                 <button type="submit">Enviar</button>
             </form>
+        </div>
+    </div>
+    
+    <div id="politica-modal" class="modal politica-modal">
+        <div class="modal-content politica-modal-content">
+            <span class="close politica-close">&times;</span>
+            <h2>Política de Privacidad</h2>
+            <p>
+                <h1>ACUERDO DE POLÍTICA DE PRIVACIDAD DE X-SEG</h1>
+
+                <p><strong>Fecha de entrada en vigor:</strong> 3 de abril de 2025</p>
+            
+                <h2>1. Identidad y Datos de Contacto del Responsable del Tratamiento:</h2>
+            
+                <p>X-SEG, con correo electrónico de contacto consultas@x-seg.com.ar, es el responsable del tratamiento de los datos personales recopilados a través de este sitio web.</p>
+            
+                <h2>2. Información que Recopilamos:</h2>
+            
+                <p>Recopilamos datos personales de los usuarios de diversas formas, incluyendo:</p>
+            
+                <ul>
+                    <li><strong>Información proporcionada directamente por el usuario:</strong> Nombre, apellido, dirección de correo electrónico, número de teléfono, información de contacto y cualquier otra información que el usuario decida compartir a través de formularios de contacto o suscripción.</li>
+                    <li><strong>Información recopilada automáticamente:</strong> Dirección IP, tipo de navegador, sistema operativo, páginas visitadas, duración de la visita y otros datos de navegación recopilados a través de cookies y tecnologías similares.</li>
+                    <li><strong>Información de terceros:</strong> En casos excepcionales, podemos recibir información de terceros, siempre con el consentimiento del usuario o cuando esté permitido por la ley.</li>
+                </ul>
+            
+                <h2>3. Finalidad del Tratamiento de Datos:</h2>
+            
+                <p>Utilizamos los datos personales recopilados para las siguientes finalidades:</p>
+            
+                <ul>
+                    <li>Proporcionar y mejorar nuestros servicios de seguridad.</li>
+                    <li>Responder a consultas y solicitudes de información.</li>
+                    <li>Enviar comunicaciones informativas y promocionales (con el consentimiento del usuario).</li>
+                    <li>Personalizar la experiencia del usuario en nuestro sitio web.</li>
+                    <li>Realizar análisis estadísticos y estudios de mercado.</li>
+                    <li>Cumplir con obligaciones legales y requerimientos de autoridades competentes.</li>
+                </ul>
+            
+                <h2>4. Legitimación del Tratamiento:</h2>
+            
+                <p>El tratamiento de datos personales se basa en las siguientes bases legales:</p>
+            
+                <ul>
+                    <li>El consentimiento del usuario, cuando sea necesario.</li>
+                    <li>La ejecución de un contrato o la aplicación de medidas precontractuales.</li>
+                    <li>El cumplimiento de obligaciones legales.</li>
+                    <li>El interés legítimo de X-SEG, siempre que no prevalezcan los derechos y libertades del usuario.</li>
+                </ul>
+            
+                <h2>5. Derechos del Usuario:</h2>
+            
+                <p>El usuario tiene derecho a:</p>
+            
+                <ul>
+                    <li>Acceder a sus datos personales.</li>
+                    <li>Rectificar datos inexactos o incompletos.</li>
+                    <li>Solicitar la supresión de sus datos, cuando corresponda.</li>
+                    <li>Limitar el tratamiento de sus datos.</li>
+                    <li>Oponerse al tratamiento de sus datos.</li>
+                    <li>Solicitar la portabilidad de sus datos.</li>
+                    <li>Revocar el consentimiento otorgado, en cualquier momento.</li>
+                </ul>
+            
+                <p>Para ejercer estos derechos, el usuario puede contactarnos a través del correo electrónico consultas@x-seg.com.ar.</p>
+            
+                <h2>6. Seguridad de los Datos:</h2>
+            
+                <p>Implementamos medidas de seguridad técnicas y organizativas adecuadas para proteger los datos personales contra el acceso no autorizado, la alteración, la divulgación o la destrucción.</p>
+            
+                <h2>7. Conservación de los Datos:</h2>
+            
+                <p>Conservamos los datos personales durante el tiempo necesario para cumplir con las finalidades para las que fueron recopilados, a menos que la ley exija un período de conservación más largo.</p>
+            
+                <h2>8. Cookies y Tecnologías Similares:</h2>
+            
+                <p>Utilizamos cookies y otras tecnologías de seguimiento para mejorar la experiencia del usuario en nuestro sitio web. El usuario puede configurar su navegador para rechazar las cookies, pero esto puede afectar la funcionalidad del sitio.</p>
+            
+                <h2>9. Transferencias Internacionales de Datos:</h2>
+            
+                <p>En caso de realizar transferencias internacionales de datos, nos aseguraremos de que se cumplan las garantías adecuadas para proteger los datos personales, de acuerdo con la legislación argentina.</p>
+            
+                <h2>10. Cambios en esta Política de Privacidad:</h2>
+            
+                <p>Nos reservamos el derecho de modificar esta política de privacidad en cualquier momento. Los cambios serán publicados en este sitio web y entrarán en vigor a partir de su publicación.</p>
+            
+                <h2>11. Jurisdicción y Ley Aplicable:</h2>
+            
+                <p>Este acuerdo de política de privacidad se rige por las leyes de la República Argentina. Cualquier disputa relacionada con este acuerdo será sometida a la jurisdicción de los tribunales competentes de la Ciudad Autónoma de Buenos Aires.</p>
+            
+                <h2>Información Adicional:</h2>
+            
+                <ul>
+                    <li>Es crucial que adaptes este modelo a las particularidades de tu negocio y a las leyes de protección de datos vigentes en Argentina.</li>
+                    <li>Te recomiendo consultar con un especialista en derecho informático para una revisión exhaustiva de tu política de privacidad.</li>
+                    <li>La ley 25.326 es la ley Argentina de protección de datos personales.</li>
+                </ul>
+            </p>
+            <label>
+                <input type="checkbox" id="aceptar-politica"> Acepto la política de privacidad
+            </label>
+            <button id="aceptar-btn">Aceptar</button>
         </div>
     </div>
 </body>
